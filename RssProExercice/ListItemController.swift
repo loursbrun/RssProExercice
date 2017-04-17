@@ -75,16 +75,18 @@ class ListItemController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
         
+
         /*
-         *  The title and the image are updated according to (indexPath.row) which itterates in the table of news
+         *  Service ImageLoader -> callback a UIImage
          */
-        let url = URL(string: self.news[indexPath.row].enclosure_url_image!)
-        DispatchQueue.global().async {
-            let data = try? Data(contentsOf: url!)
+        ImageLoader.init().load (url_image: self.news[indexPath.row].enclosure_url_image!){
+            paramsCallBack in
             DispatchQueue.main.async {
-                cell.imgImage.image = UIImage(data: data!)
+                cell.imgImage.image = paramsCallBack
             }
         }
+        
+        
         cell.lblName.text! = self.news[indexPath.row].title_model!
         return cell
     } 

@@ -35,7 +35,6 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
        
         /*
          *  On met à jour les éléments de la vue
@@ -43,16 +42,17 @@ class DetailViewController: UIViewController {
         lblName.text! = getName
         lblDescription.text! = getDescription
         
+        
         /*
-         *  Mise à jour de l'image dans la Main Queue de manière asynchrone et prioritaire
+         *  Service ImageLoader -> callback a UIImage
          */
-        let url = URL(string: getImage)
-        DispatchQueue.global().async {
-            let data = try? Data(contentsOf: url!)
+        ImageLoader.init().load (url_image: getImage){
+            paramsCallBack in
             DispatchQueue.main.async {
-                self.imgImage.image = UIImage(data: data!)
+                self.imgImage.image = paramsCallBack
             }
         }
+        
     }
     
 

@@ -18,6 +18,7 @@
 		223585871E9FF80400DA0B4C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223585861E9FF80400DA0B4C /* DetailViewController.swift */; };
 		223585891EA0004800DA0B4C /* RssItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223585881EA0004800DA0B4C /* RssItem.swift */; };
 		2235858B1EA0006E00DA0B4C /* RssReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2235858A1EA0006E00DA0B4C /* RssReader.swift */; };
+		2239130A1EA5505800B8A167 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223913091EA5505800B8A167 /* ImageLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		223585861E9FF80400DA0B4C /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		223585881EA0004800DA0B4C /* RssItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RssItem.swift; sourceTree = "<group>"; };
 		2235858A1EA0006E00DA0B4C /* RssReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RssReader.swift; sourceTree = "<group>"; };
+		223913091EA5505800B8A167 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				2235858A1EA0006E00DA0B4C /* RssReader.swift */,
+				223913091EA5505800B8A167 /* ImageLoader.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2239130A1EA5505800B8A167 /* ImageLoader.swift in Sources */,
 				223585591E9FE64400DA0B4C /* ListItemController.swift in Sources */,
 				223585571E9FE64400DA0B4C /* AppDelegate.swift in Sources */,
 				223585851E9FE8CB00DA0B4C /* CollectionViewCell.swift in Sources */,
