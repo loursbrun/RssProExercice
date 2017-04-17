@@ -1,5 +1,5 @@
 //
-//  NewsModel.swift
+//  RssItem.swift
 //  RssProExercice
 //
 //  Created by Fabien Brun on 13/04/2017.
@@ -12,7 +12,7 @@ import UIKit
 //  Model de news
 
 
-class RssItem: NSObject {
+class RssItem {
 
     var link_model: String?
     var title_model: String?

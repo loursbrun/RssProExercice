@@ -34,7 +34,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
          *  Appel du service qui Parse le flux de manière asynchrone
          *  et retourne en callback le tableau d'objet NewsModel
          */
-        XMLParserService.sharedInstance.parseNews {
+        RssReader.sharedInstance.parseNews {
             paramsCallBack in
             
             DispatchQueue.main.async {

@@ -1,5 +1,5 @@
 //
-//  XMLParserService.swift
+//  RssReader.swift
 //  RssProExercice
 //
 //  Created by Fabien Brun on 13/04/2017.
@@ -9,10 +9,10 @@
 import UIKit
 
 
-class XMLParserService: NSObject, XMLParserDelegate {
+class RssReader: NSObject, XMLParserDelegate {
     
     
-    static let sharedInstance = XMLParserService()
+    static let sharedInstance = RssReader()
     
     let URL_NEWS = "http://www.lemonde.fr/rss/une.xml"
     
@@ -42,11 +42,11 @@ class XMLParserService: NSObject, XMLParserDelegate {
     
     
     // XMLParser Delegates
-    func parserDidStartDocument(_ parser: XMLParser) {
+    internal func parserDidStartDocument(_ parser: XMLParser) {
         //On commence le parsing
     }
     
-    func parser(_ parser: XMLParser,didStartElement elementName: String,namespaceURI: String?,qualifiedName qName: String?,attributes attributeDict:[String : String] = [:]) {
+    internal func parser(_ parser: XMLParser,didStartElement elementName: String,namespaceURI: String?,qualifiedName qName: String?,attributes attributeDict:[String : String] = [:]) {
         strElement = elementName
         if strElement == "item" {
             isNeedToGetItemData = true
@@ -64,7 +64,7 @@ class XMLParserService: NSObject, XMLParserDelegate {
         }
     }
     
-    func parser(_ parser: XMLParser, foundCharacters string: String) {
+    internal func parser(_ parser: XMLParser, foundCharacters string: String) {
         if isNeedToGetItemData == true && string != "\n" {
             if strElement == "title" {
                 strTitle.append(string)
@@ -78,7 +78,7 @@ class XMLParserService: NSObject, XMLParserDelegate {
         }
     }
     
-    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+    internal func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         if elementName == "item" {
             
             // Ajoute une News au tableau de news
