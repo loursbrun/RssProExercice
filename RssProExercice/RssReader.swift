@@ -6,6 +6,19 @@
 //  Copyright © 2017 fabienbrun. All rights reserved.
 //
 
+
+
+/*
+ *
+ *  This service read the RSS Flux 
+ *  Parse and crea
+ *  Parse and put in a array all found item
+ *
+ */
+
+
+
+
 import UIKit
 
 
@@ -19,17 +32,17 @@ class RssReader: NSObject, XMLParserDelegate {
     var newsArray = [RssItem]()
     
     
-    //Declaration des tableaux, dictionnaires, chaines de caractères
+    //Declaration of variables types
     var xmlParser = XMLParser()
-    var strElement = String()
-    var strTitle = String()
-    var strLink = String()
-    var strDescription = String()
-    var strUrlImg = String()
+    var itemElement = String()
+    var itemTitle = String()
+    var itemLink = String()
+    var itemDescription = String()
+    var itemUrlImg = String()
     var isNeedToGetItemData = false
     
     
-    // On parse l'url RSS qui renvoit un xml
+    // We parse the RSS url that returns an xml
     func parseNews(callBack:@escaping ([RssItem])-> Void) {
         
         let url = NSURL(string: URL_NEWS)
@@ -43,21 +56,21 @@ class RssReader: NSObject, XMLParserDelegate {
     
     // XMLParser Delegates
     internal func parserDidStartDocument(_ parser: XMLParser) {
-        //On commence le parsing
+        //Begining the parsing
     }
     
     internal func parser(_ parser: XMLParser,didStartElement elementName: String,namespaceURI: String?,qualifiedName qName: String?,attributes attributeDict:[String : String] = [:]) {
-        strElement = elementName
-        if strElement == "item" {
+        itemElement = elementName
+        if itemElement == "item" {
             isNeedToGetItemData = true
             //Re-initialise
-            strTitle = String()
-            strLink = String()
-            strDescription = String()
+            itemTitle = String()
+            itemLink = String()
+            itemDescription = String()
         }
-        if strElement == "enclosure" {
+        if itemElement == "enclosure" {
             if let urlString = attributeDict["url"] {
-                strUrlImg = urlString
+                itemUrlImg = urlString
             } else {
                 print("Error of url attribute")
             }
@@ -66,14 +79,14 @@ class RssReader: NSObject, XMLParserDelegate {
     
     internal func parser(_ parser: XMLParser, foundCharacters string: String) {
         if isNeedToGetItemData == true && string != "\n" {
-            if strElement == "title" {
-                strTitle.append(string)
+            if itemElement == "title" {
+                itemTitle.append(string)
             }
-            else if strElement == "link" {
-                strLink.append(string)
+            else if itemElement == "link" {
+                itemLink.append(string)
             }
-            else if strElement == "description" {
-                strDescription.append(string)
+            else if itemElement == "description" {
+                itemDescription.append(string)
             }
         }
     }
@@ -81,16 +94,16 @@ class RssReader: NSObject, XMLParserDelegate {
     internal func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         if elementName == "item" {
             
-            // Ajoute une News au tableau de news
+            // Add a news to the news array
             let news = RssItem()
-            news.link_model = strLink
-            news.title_model = strTitle
-            news.description_model = strDescription
-            news.enclosure_url_image = strUrlImg
+            news.link_model = itemLink
+            news.title_model = itemTitle
+            news.description_model = itemDescription
+            news.enclosure_url_image = itemUrlImg
             
             newsArray.append(news)
             
-            //Met le flag à false
+            //Pass the flag to false
             isNeedToGetItemData = false
         }
         
