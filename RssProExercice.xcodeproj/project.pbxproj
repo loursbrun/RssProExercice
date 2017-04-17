@@ -105,10 +105,9 @@
 		223585551E9FE64400DA0B4C /* RssProExercice */ = {
 			isa = PBXGroup;
 			children = (
-				228E7FC01EA03B2D00F9C6B9 /* Model */,
-				228E7FC11EA03B3500F9C6B9 /* View */,
-				228E7FC21EA03B3D00F9C6B9 /* Controller */,
-				223585561E9FE64400DA0B4C /* AppDelegate.swift */,
+				227309DB1EA4FF1E00A10272 /* Common */,
+				227309DA1EA4FEF100A10272 /* Detail */,
+				227309D91EA4FEE500A10272 /* List */,
 				2235855D1E9FE64400DA0B4C /* Assets.xcassets */,
 				223585621E9FE64400DA0B4C /* Info.plist */,
 			);
@@ -133,32 +132,113 @@
 			path = RssProExerciceUITests;
 			sourceTree = "<group>";
 		};
-		228E7FC01EA03B2D00F9C6B9 /* Model */ = {
+		227309D91EA4FEE500A10272 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				223585881EA0004800DA0B4C /* NewsModel.swift */,
-				223585841E9FE8CB00DA0B4C /* CollectionViewCell.swift */,
+				227309DE1EA4FF6000A10272 /* Model */,
+				227309DD1EA4FF5700A10272 /* View */,
+				227309DC1EA4FF4100A10272 /* Controller */,
 			);
-			name = Model;
+			name = List;
 			sourceTree = "<group>";
 		};
-		228E7FC11EA03B3500F9C6B9 /* View */ = {
+		227309DA1EA4FEF100A10272 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				2235855A1E9FE64400DA0B4C /* Main.storyboard */,
-				2235855F1E9FE64400DA0B4C /* LaunchScreen.storyboard */,
+				227309E11EA4FF8000A10272 /* Model */,
+				227309E01EA4FF7600A10272 /* View */,
+				227309DF1EA4FF7000A10272 /* Controller */,
+			);
+			name = Detail;
+			sourceTree = "<group>";
+		};
+		227309DB1EA4FF1E00A10272 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				227309E51EA500A400A10272 /* Service */,
+				227309E41EA5000B00A10272 /* Model */,
+				227309E31EA5000200A10272 /* View */,
+				227309E21EA4FFF900A10272 /* Controller */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		227309DC1EA4FF4100A10272 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				223585581E9FE64400DA0B4C /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		227309DD1EA4FF5700A10272 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				223585841E9FE8CB00DA0B4C /* CollectionViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
 		};
-		228E7FC21EA03B3D00F9C6B9 /* Controller */ = {
+		227309DE1EA4FF6000A10272 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2235858A1EA0006E00DA0B4C /* XMLParserService.swift */,
-				223585581E9FE64400DA0B4C /* ViewController.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		227309DF1EA4FF7000A10272 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
 				223585861E9FF80400DA0B4C /* DetailViewController.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		227309E01EA4FF7600A10272 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		227309E11EA4FF8000A10272 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		227309E21EA4FFF900A10272 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				223585561E9FE64400DA0B4C /* AppDelegate.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		227309E31EA5000200A10272 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2235855F1E9FE64400DA0B4C /* LaunchScreen.storyboard */,
+				2235855A1E9FE64400DA0B4C /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		227309E41EA5000B00A10272 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				223585881EA0004800DA0B4C /* NewsModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		227309E51EA500A400A10272 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				2235858A1EA0006E00DA0B4C /* XMLParserService.swift */,
+			);
+			name = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
