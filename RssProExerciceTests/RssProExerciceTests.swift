@@ -35,16 +35,16 @@ class RssProExerciceTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testRssReaderLemondeUneXml() {
+        
+        RssReader.sharedInstance.parseNews (url_rss: "http://www.lemonde.fr/rss/une.xml"){
+            paramsCallBack in
+            DispatchQueue.main.async {
+            }
+        }
+        
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
     
 }
