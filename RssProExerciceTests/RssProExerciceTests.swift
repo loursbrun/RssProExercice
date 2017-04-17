@@ -36,12 +36,17 @@ class RssProExerciceTests: XCTestCase {
     }
     
     
-    func testRssReaderLemondeUneXml() {
+    func testRssReaderShareInstance() {
         
         RssReader.sharedInstance.parseNews (url_rss: "http://www.lemonde.fr/rss/une.xml"){
             paramsCallBack in
             DispatchQueue.main.async {
+            
+              XCTAssert(paramsCallBack.count > 0)
+                
             }
+            
+            
         }
         
     }
