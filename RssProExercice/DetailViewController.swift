@@ -35,7 +35,8 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+       
         /*
          *  On met à jour les éléments de la vue
          */

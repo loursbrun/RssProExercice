@@ -25,6 +25,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let image = UIImage(named: "lemonde")
         imageView.image = image
         navigationItem.titleView = imageView
+      
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"Retour", style:.plain, target:nil, action:nil)
         
         
         
