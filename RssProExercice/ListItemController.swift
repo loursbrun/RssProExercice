@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class ListItemController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var MainCollectionView: UICollectionView!
     
@@ -20,19 +20,12 @@ class ListViewController: UIViewController, UICollectionViewDelegate, UICollecti
         /*          
          * Ajout du logo dans la navigation bar
          */
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
-        imageView.contentMode = .scaleAspectFit
-        let image = UIImage(named: "lemonde")
-        imageView.image = image
-        navigationItem.titleView = imageView
-      
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"Retour", style:.plain, target:nil, action:nil)
-        
+        navigationBarSetup()
         
         
         /* 
-         *  Appel du service qui Parse le flux de manière asynchrone
-         *  et retourne en callback le tableau d'objet NewsModel
+         *  Appel du service RssReader qui Parse le flux rss de manière asynchrone
+         *  et retourne en callback le tableau d'objet RssItem
          */
         RssReader.sharedInstance.parseNews {
             paramsCallBack in
@@ -46,6 +39,17 @@ class ListViewController: UIViewController, UICollectionViewDelegate, UICollecti
             }
         }
         
+    }
+    
+    internal func navigationBarSetup() {
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        imageView.contentMode = .scaleAspectFit
+        let image = UIImage(named: "lemonde")
+        imageView.image = image
+        navigationItem.titleView = imageView
+        
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"Retour", style:.plain, target:nil, action:nil)
+
     }
 
     override func didReceiveMemoryWarning() {
