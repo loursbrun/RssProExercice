@@ -12,7 +12,12 @@ class ListItemController: UIViewController, UICollectionViewDelegate, UICollecti
 
     @IBOutlet weak var MainCollectionView: UICollectionView!
     
+    /*
+     * URL of RSS Lemonde
+     */
+    let URL_RSS_Lemonde = "http://www.lemonde.fr/rss/une.xml"
     var news = [RssItem]()
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +32,8 @@ class ListItemController: UIViewController, UICollectionViewDelegate, UICollecti
          *  Call and Parse the  rss flux width RssReader service (asynchronously)
          *  return callback of [RssItem] array
          */
-        RssReader.sharedInstance.parseNews {
+        
+        RssReader.sharedInstance.parseNews (url_rss: URL_RSS_Lemonde){
             paramsCallBack in
             
             DispatchQueue.main.async {

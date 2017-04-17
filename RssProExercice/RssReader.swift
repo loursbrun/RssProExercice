@@ -27,8 +27,6 @@ class RssReader: NSObject, XMLParserDelegate {
     
     static let sharedInstance = RssReader()
     
-    let URL_NEWS = "http://www.lemonde.fr/rss/une.xml"
-    
     var newsArray = [RssItem]()
     
     
@@ -43,9 +41,9 @@ class RssReader: NSObject, XMLParserDelegate {
     
     
     // We parse the RSS url that returns an xml
-    func parseNews(callBack:@escaping ([RssItem])-> Void) {
+    func parseNews(url_rss: String , callBack:@escaping ([RssItem])-> Void) {
         
-        let url = NSURL(string: URL_NEWS)
+        let url = NSURL(string: url_rss)
         xmlParser = XMLParser(contentsOf: url! as URL)!
         xmlParser.delegate = self
         xmlParser.parse()
