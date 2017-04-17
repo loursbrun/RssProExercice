@@ -16,7 +16,7 @@ class XMLParserService: NSObject, XMLParserDelegate {
     
     let URL_NEWS = "http://www.lemonde.fr/rss/une.xml"
     
-    var newsArray = [NewsModel]()
+    var newsArray = [RssItem]()
     
     
     //Declaration des tableaux, dictionnaires, chaines de caractères
@@ -30,7 +30,7 @@ class XMLParserService: NSObject, XMLParserDelegate {
     
     
     // On parse l'url RSS qui renvoit un xml
-    func parseNews(callBack:@escaping ([NewsModel])-> Void) {
+    func parseNews(callBack:@escaping ([RssItem])-> Void) {
         
         let url = NSURL(string: URL_NEWS)
         xmlParser = XMLParser(contentsOf: url! as URL)!
@@ -82,7 +82,7 @@ class XMLParserService: NSObject, XMLParserDelegate {
         if elementName == "item" {
             
             // Ajoute une News au tableau de news
-            let news = NewsModel()
+            let news = RssItem()
             news.link_model = strLink
             news.title_model = strTitle
             news.description_model = strDescription

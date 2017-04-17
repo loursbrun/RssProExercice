@@ -12,7 +12,7 @@ import UIKit
 //  Model de news
 
 
-class NewsModel: NSObject {
+class RssItem: NSObject {
 
     var link_model: String?
     var title_model: String?

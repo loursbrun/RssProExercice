@@ -12,7 +12,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
     @IBOutlet weak var MainCollectionView: UICollectionView!
     
-    var news = [NewsModel]()
+    var news = [RssItem]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
