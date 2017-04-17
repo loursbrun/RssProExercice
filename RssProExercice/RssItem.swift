@@ -9,7 +9,19 @@
 import UIKit
 
 
-//  Model de news
+
+/*
+ *
+ *  Model of Rss Item
+ *  title :             String
+ *  description :       String
+ *  link of article:    String
+ *  url of image:       String
+ *
+ */
+
+
+//  Model of item
 
 
 class RssItem {

@@ -18,14 +18,14 @@ class ListItemController: UIViewController, UICollectionViewDelegate, UICollecti
         super.viewDidLoad()
         
         /*          
-         * Ajout du logo dans la navigation bar
+         * Add the logo to navigation bar
          */
         navigationBarSetup()
         
         
         /* 
-         *  Appel du service RssReader qui Parse le flux rss de manière asynchrone
-         *  et retourne en callback le tableau d'objet RssItem
+         *  Call and Parse the  rss flux width RssReader service (asynchronously)
+         *  return callback of [RssItem] array
          */
         RssReader.sharedInstance.parseNews {
             paramsCallBack in
@@ -42,6 +42,10 @@ class ListItemController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     internal func navigationBarSetup() {
+        /*
+         * Custom navigation bar - add image & chnage back title word
+         */
+
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         imageView.contentMode = .scaleAspectFit
         let image = UIImage(named: "lemonde")
@@ -66,7 +70,7 @@ class ListItemController: UIViewController, UICollectionViewDelegate, UICollecti
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
         
         /*
-         *  On met à jour le titre et l'image en fonction avec ( indexPath.row ) qui ittère dans le tableau de news
+         *  The title and the image are updated according to (indexPath.row) which itterates in the table of news
          */
         let url = URL(string: self.news[indexPath.row].enclosure_url_image!)
         DispatchQueue.global().async {
@@ -81,7 +85,7 @@ class ListItemController: UIViewController, UICollectionViewDelegate, UICollecti
     
     
     /*
-     *  Petites marges pour les cellules
+     *  Small margins for cells
      */
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 1.0
@@ -92,7 +96,7 @@ class ListItemController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         /*
-         *  On intencie le controller de la vue Détails en passant les valeurs de la cellule cliquée
+         *  The controller of the Details view is intensified by passing the values of the clicked cell
          */
         let desCV = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         

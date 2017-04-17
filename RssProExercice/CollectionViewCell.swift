@@ -8,6 +8,17 @@
 
 import UIKit
 
+
+/*
+ *
+ *  Cell of collectionView
+ *
+ *  imgImage :          UIImageView
+ *  lblName:            UILabel
+ *
+ */
+
+
 class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imgImage: UIImageView!
