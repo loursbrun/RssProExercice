@@ -140,7 +140,6 @@
 		227309D91EA4FEE500A10272 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				227309DE1EA4FF6000A10272 /* Model */,
 				227309DD1EA4FF5700A10272 /* View */,
 				227309DC1EA4FF4100A10272 /* Controller */,
 			);
@@ -150,8 +149,6 @@
 		227309DA1EA4FEF100A10272 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				227309E11EA4FF8000A10272 /* Model */,
-				227309E01EA4FF7600A10272 /* View */,
 				227309DF1EA4FF7000A10272 /* Controller */,
 			);
 			name = Detail;
@@ -184,33 +181,12 @@
 			name = View;
 			sourceTree = "<group>";
 		};
-		227309DE1EA4FF6000A10272 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
 		227309DF1EA4FF7000A10272 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				223585861E9FF80400DA0B4C /* DetailViewController.swift */,
 			);
 			name = Controller;
-			sourceTree = "<group>";
-		};
-		227309E01EA4FF7600A10272 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
-		227309E11EA4FF8000A10272 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Model;
 			sourceTree = "<group>";
 		};
 		227309E21EA4FFF900A10272 /* Controller */ = {

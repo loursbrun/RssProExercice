@@ -47,10 +47,20 @@ class DetailViewController: UIViewController {
          *  Service ImageLoader -> callback a UIImage
          */
         ImageLoader.init().load (url_image: getImage){
-            paramsCallBack in
+          (paramsCallBack,error) in
+            guard error == nil else {
+                
+                let alert = UIAlertController(title: "error", message: "error calling ImageLoader \(error!)", preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "ok", style: .default, handler: nil)
+                alert.addAction(defaultAction)
+                self.present(alert, animated: true, completion: nil)
+                return
+            }
+
             DispatchQueue.main.async {
                 self.imgImage.image = paramsCallBack
             }
+
         }
         
     }

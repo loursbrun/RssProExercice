@@ -80,10 +80,18 @@ class ListItemController: UIViewController, UICollectionViewDelegate, UICollecti
          *  Service ImageLoader -> callback a UIImage
          */
         ImageLoader.init().load (url_image: self.news[indexPath.row].enclosure_url_image!){
-            paramsCallBack in
-            DispatchQueue.main.async {
-                cell.imgImage.image = paramsCallBack
+            (paramsCallBack,error) in
+            guard error == nil else {
+                
+                let alert = UIAlertController(title: "error", message: "error calling ImageLoader \(error!)", preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "ok", style: .default, handler: nil)
+                alert.addAction(defaultAction)
+                self.present(alert, animated: true, completion: nil)
+                return
             }
+             DispatchQueue.main.async {
+                 cell.imgImage.image = paramsCallBack
+             }
         }
         
         

@@ -9,6 +9,10 @@
 import UIKit
 
 
+enum ImageLoaderError: Error {
+    case networkError(error: Error)
+  }
+
 /*
  *
  *  Service loading image
@@ -17,10 +21,9 @@ import UIKit
  *
  */
 
-
 class ImageLoader {
     
-    func load(url_image: String , callBack:@escaping (UIImage)-> Void) {
+    func load(url_image: String , callBack:@escaping (UIImage?, ImageLoaderError?)-> Void) {
         
         let config = URLSessionConfiguration.default // Session Configuration
         let url = URL(string: url_image)!
@@ -28,35 +31,28 @@ class ImageLoader {
         let task = session.dataTask(with: url, completionHandler: {
             (data, response, error) in
             
-            if error != nil {
+            guard error == nil else {
+                print("error calling ImageLoader: \(error!)")
+                callBack(nil, .networkError(error: error!))
                 
-                print(error!.localizedDescription)
-                
-            } else {
-                
-                do {
-                    
-                    if let image = try UIImage(data: data!)
-                    {
-                        callBack(image)
-                    }
-                    
-                } catch {
-                    print("error UIImage")
-                }
-                
+                return
             }
             
+            do {
+                if let image = try UIImage(data: data!)
+                {
+                  callBack(image,nil)
+                }
+                
+                } catch {
+                  print("error UIImage")
+              }
+
+
         })
         task.resume()
 
     }
-    
-    
-    
-    
-    
-    
     
 
 }
